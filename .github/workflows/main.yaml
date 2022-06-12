@@ -1,0 +1,18 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say start
+        run: echo Starting...
+      - name: Get random color
+        id: get-random-color
+        uses: stringersoftware/sample-composite-action@v1
+        with:
+          userName: Thomas
+      - name: Show random color
+        run: echo Random color is ${{ steps.get-random-color.outputs.color }}
+      - name: Say completion
+        run: echo Completing...
